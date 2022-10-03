@@ -16,41 +16,22 @@ export class CurrencyConversionServiceService {
 
   getCurrencies(): Observable<Currency[]> {
 
-    const url = 'assets/Currency.json';//testing
-    //const url = "https://localhost:44384/api/currency";//live
+    //const url = 'assets/Currency.json';//testing
+    const url = "https://localhost:44384/api/currency";//live
     return this.http.get<Currency[]>(url);
-
   }
 
   getlatestExchangeRate(frmCur: string, toCur: string): Observable<any> {
     
-    const url = 'assets/2022-10-01.json';//testing
-    //const url = "https://localhost:44384/api/currency/" + frmCur + "/" + toCur+"/" + "2";//live
+    //const url = 'assets/2022-10-01.json';//testing
+    const url = "https://localhost:44384/api/currency/" + frmCur + "/" + toCur+"/" + "2";//live
     return this.http.get<any>(url);
-
   }
 
   getHistory(frmCur: string, toCur: string): Observable<HistoryData[]> {
 
     const url = "https://localhost:44384/api/currency/history/" + frmCur + "/" + toCur;
     return this.http.get<HistoryData[]>(url);
-
-  }
-  
-  //test 
-  getHistory1(frmCur: string, toCur: string): Observable<any> {
-
-    //const url = "https://localhost:44384/api/currency/history/" + frmCur + "/" + toCur;
-    const url = 'assets/2022-09-30.json';
-    return this.http.get<any>(url);
-
-  }
-  //test
-  getHistory2(frmCur: string, toCur: string): Observable<any> {
-
-    //const url = "https://localhost:44384/api/currency/history/" + frmCur + "/" + toCur;
-    const url = 'assets/2022-09-29.json';
-    return this.http.get<any>(url);
 
   }
 
